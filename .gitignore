@@ -12,9 +12,16 @@ dist/
 *.bin
 *.hex
 *.map
+.pio/
+*.o
+*.a
+*.lib
 
 # Dependencies
 lib/
+node_modules/
+package-lock.json
+pnpm-lock.yaml
 
 # IDE
 .vscode/
@@ -26,6 +33,7 @@ lib/
 .classpath
 .c9/
 *.sublime-workspace
+*.sublime-project
 
 # STM32
 STM32CubeMX/
@@ -48,6 +56,9 @@ Thumbs.db
 *.pem
 *.key
 
+# Logs
+*.log
+*.log.*
 # CMake
 CMakeFiles/
 cmake_install.cmake
