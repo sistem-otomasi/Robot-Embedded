@@ -1,0 +1,61 @@
+# Arduino/PlatformIO
+.pio/
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch/
+
+# Build artifacts
+build/
+dist/
+*.elf
+*.bin
+*.hex
+*.map
+
+# Dependencies
+lib/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.sublime-workspace
+
+# STM32
+STM32CubeMX/
+*.ioc
+Drivers/
+
+# ESP32
+esp-idf/
+components/
+
+# OS
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Environment
+.env
+.env.local
+*.pem
+*.key
+
+# CMake
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+
+# Misc
+*.o
+*.a
+*.so
+.depend/
