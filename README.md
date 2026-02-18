@@ -1,6 +1,6 @@
 # Robot Embedded-to-ROS Communication System
 
-Sistem komunikasi lengkap antara embedded devices (ESP32/STM32) dengan ROS2 yang berjalan di MiniPC.
+Sistem komunikasi lengkap antara embedded devices (ESP32/STM32) dengan ROS2 yang berjalan di MiniPC, termasuk package deteksi objek (YOLO) dan deteksi garis (LaneNet).
 
 ## Architecture Overview
 
@@ -32,15 +32,64 @@ Sistem komunikasi lengkap antara embedded devices (ESP32/STM32) dengan ROS2 yang
                     │  │ MQTT to ROS      │   │
                     │  │ Bridge Node      │   │
                     │  └──────────────────┘   │
+                    │  ┌──────────────────┐   │
+                    │  │ YOLO Detector    │   │
+                    │  │ LaneNet Detector │   │
+                    │  └──────────────────┘   │
                     │  Topics:                │
                     │  - Sensor data          │
                     │  - Heartbeat            │
                     │  - Status               │
                     │  - Control commands     │
+                    │  - Object detection     │
+                    │  - Lane detection       │
                     └─────────────────────────┘
 ```
 
+## 📦 Repository Structure
+
+```
+Robot-Embedded/
+├── ESP32/              # ESP32 firmware untuk WiFi communication
+├── STM32/              # STM32 firmware untuk Ethernet communication
+├── ros2_ws/            # ROS2 workspace untuk vision & detection
+│   ├── src/
+│   │   ├── yolo_detector/           # YOLO object detection
+│   │   ├── lanenet_detector/        # LaneNet lane detection
+│   │   ├── yolo_lanenet_detector/   # Combined detector
+│   │   └── video_publisher/         # Video file publisher (.mov support)
+│   ├── build.sh        # Build script
+│   ├── requirements.txt
+│   └── README.md       # Detailed ROS2 documentation
+└── README.md           # This file
+```
+
 ## 🚀 Quick Start
+
+### ROS2 Vision Detection Packages (YOLO & LaneNet)
+
+Untuk setup lengkap YOLO, LaneNet, dan Video Publisher (.mov file support), lihat:
+
+**📖 [ROS2 Packages Documentation](ros2_ws/README.md)**
+
+Quick commands:
+```bash
+# Build packages
+cd ros2_ws
+./build.sh
+
+# Source workspace
+source install/setup.bash
+
+# Run video file selector UI
+ros2 run video_publisher video_file_selector.py
+
+# Atau manual dengan command line
+ros2 run video_publisher video_publisher_node.py \
+  --ros-args -p video_file:=/path/to/video.mov
+
+ros2 launch yolo_lanenet_detector yolo_lanenet_detector.launch.py
+```
 
 ### 1. Setup Embedded Device (pilih salah satu)
 

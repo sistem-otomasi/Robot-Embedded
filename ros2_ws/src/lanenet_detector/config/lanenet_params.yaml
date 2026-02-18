@@ -1,0 +1,21 @@
+# LaneNet Detector Configuration
+
+lanenet_detector_node:
+  ros__parameters:
+    # Topics
+    image_topic: "/camera/image_raw"
+    lane_topic: "/lanenet/lanes"
+    visualization_topic: "/lanenet/image_detected"
+    
+    # Region of Interest (ROI)
+    roi_top: 0.5      # Top of ROI as percentage of image height
+    roi_bottom: 1.0   # Bottom of ROI as percentage of image height
+    
+    # Canny edge detection
+    canny_low: 50
+    canny_high: 150
+    
+    # Hough transform parameters
+    hough_threshold: 50
+    hough_min_line_length: 100
+    hough_max_line_gap: 50

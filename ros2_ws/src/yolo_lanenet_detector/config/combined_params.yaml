@@ -1,0 +1,28 @@
+# Combined YOLO + LaneNet Detector Configuration
+
+yolo_lanenet_detector_node:
+  ros__parameters:
+    # YOLO Object Detection
+    yolo_model_path: "yolov8n.pt"
+    confidence_threshold: 0.5
+    iou_threshold: 0.45
+    device: "cpu"
+    
+    # Topics
+    image_topic: "/camera/image_raw"
+    detection_topic: "/combined/detections"
+    lane_topic: "/combined/lanes"
+    visualization_topic: "/combined/image_detected"
+    
+    # Lane Detection - Region of Interest
+    roi_top: 0.5
+    roi_bottom: 1.0
+    
+    # Lane Detection - Canny edge detection
+    canny_low: 50
+    canny_high: 150
+    
+    # Lane Detection - Hough transform
+    hough_threshold: 50
+    hough_min_line_length: 100
+    hough_max_line_gap: 50

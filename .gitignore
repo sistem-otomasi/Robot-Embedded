@@ -70,3 +70,21 @@ Makefile
 *.a
 *.so
 .depend/
+
+# ROS2
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+*.pyc
+__pycache__/
+*.egg-info/
+
+# YOLO models
+*.pt
+*.weights
+*.onnx
+
+# Python virtual environment
+venv/
+env/
+.venv/

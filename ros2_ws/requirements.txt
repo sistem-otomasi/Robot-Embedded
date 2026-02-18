@@ -1,0 +1,25 @@
+# Python dependencies for YOLO, LaneNet, and Video Publisher packages
+
+# Computer Vision
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
+
+# YOLO Object Detection (Ultralytics YOLOv8)
+ultralytics>=8.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Image processing
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# GUI (for video file selector)
+tk
+
+# ROS2 dependencies (installed via rosdep)
+# - rclpy
+# - sensor_msgs
+# - std_msgs
+# - cv_bridge
+# - vision_msgs
+# - geometry_msgs

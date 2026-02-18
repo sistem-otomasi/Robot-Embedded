@@ -1,0 +1,19 @@
+# YOLO Detector Configuration
+
+yolo_detector_node:
+  ros__parameters:
+    # Model configuration
+    model_path: "yolov8n.pt"  # YOLOv8 nano model (fastest)
+    # Other options: yolov8s.pt, yolov8m.pt, yolov8l.pt, yolov8x.pt
+    
+    # Detection thresholds
+    confidence_threshold: 0.5
+    iou_threshold: 0.45
+    
+    # Topics
+    image_topic: "/camera/image_raw"
+    detection_topic: "/yolo/detections"
+    visualization_topic: "/yolo/image_detected"
+    
+    # Device (cpu or cuda)
+    device: "cpu"
